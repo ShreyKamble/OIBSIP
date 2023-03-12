@@ -1,0 +1,242 @@
+// PROVIDE A SEARCH MONTHLY BIRTHDAYS.
+
+#include <iostream>
+using namespace std;
+
+const int MAX_BIRTHDAYS = 100;
+
+struct Birthday {
+    string name;
+    int month;
+    int day;
+};
+
+void search_birthdays(Birthday birthdays[], int num_birthdays, int search_month) {
+    cout << "Birthdays in month " << search_month << ":\n";
+    cout << "---------------------------\n";
+    
+    bool found = false;
+    for (int i = 0; i < num_birthdays; i++) {
+        if (birthdays[i].month == search_month) {
+            cout << birthdays[i].name << "'s birthday is on " << birthdays[i].month << "/" << birthdays[i].day << "\n";
+            found = true;
+        }
+    }
+    
+    if (!found) {
+        cout << "No birthdays found in month " << search_month << "\n";
+    }
+}
+
+int main() {
+    Birthday birthdays[MAX_BIRTHDAYS];
+    int num_birthdays = 0;
+    
+    // add some birthdays to the list
+    birthdays[num_birthdays++] = {"John", 1, 12};
+    birthdays[num_birthdays++] = {"Jane", 5, 24};
+    birthdays[num_birthdays++] = {"Michael", 7, 5};
+    birthdays[num_birthdays++] = {"Emily", 9, 16};
+    birthdays[num_birthdays++] = {"David", 12, 30};
+    birthdays[num_birthdays++] = {"Sarah", 3, 7};
+    
+    // search for birthdays in a specific month
+    int search_month = 7;
+    search_birthdays(birthdays, num_birthdays, search_month);
+    
+    return
+}
+
+// DISPLAY AT LEAST 5 BIRTHDAYSEDIT.
+
+#include <iostream>
+using namespace std;
+
+const int MAX_BIRTHDAYS = 100;
+
+struct Birthday {
+    string name;
+    int month;
+    int day;
+};
+
+void display_birthdays(Birthday birthdays[], int num_birthdays) {
+    cout << "Birthday List:\n";
+    cout << "----------------\n";
+    
+    int displayed_birthdays = 0;
+    for (int i = 0; i < num_birthdays && displayed_birthdays < 5; i++) {
+        cout << birthdays[i].name << "'s birthday is on " << birthdays[i].month << "/" << birthdays[i].day << "\n";
+        displayed_birthdays++;
+    }
+    
+    if (displayed_birthdays == 0) {
+        cout << "No birthdays found in the list.\n";
+    }
+}
+
+int main() {
+    Birthday birthdays[MAX_BIRTHDAYS];
+    int num_birthdays = 0;
+    
+    // add some birthdays to the list
+    birthdays[num_birthdays++] = {"John", 1, 12};
+    birthdays[num_birthdays++] = {"Jane", 5, 24};
+    birthdays[num_birthdays++] = {"Michael", 7, 5};
+    birthdays[num_birthdays++] = {"Emily", 9, 16};
+    birthdays[num_birthdays++] = {"David", 12, 30};
+    birthdays[num_birthdays++] = {"Sarah", 3, 7};
+    
+    // display at least five birthdays
+    display_birthdays(birthdays, num_birthdays);
+    
+    return 0;
+}
+
+// DISPLAY YOUR LOVED ONES BIRTHDAY.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct Birthday {
+    string name;
+    int month;
+    int day;
+};
+
+void display_loved_ones_birthdays(vector<Birthday>& birthdays, vector<string>& loved_ones) {
+    cout << "Birthday List for Your Loved Ones:\n";
+    cout << "----------------------------------\n";
+    
+    for (const auto& loved_one : loved_ones) {
+        bool found = false;
+        for (const auto& birthday : birthdays) {
+            if (birthday.name == loved_one) {
+                cout << birthday.name << "'s birthday is on " << birthday.month << "/" << birthday.day << "\n";
+                found = true;
+            }
+        }
+        if (!found) {
+            cout << "No birthday found for " << loved_one << " in the list.\n";
+        }
+    }
+}
+
+int main() {
+    vector<Birthday> birthdays = {
+        {"John", 1, 12},
+        {"Jane", 5, 24},
+        {"Michael", 7, 5},
+        {"Emily", 9, 16},
+        {"David", 12, 30},
+        {"Sarah", 3, 7},
+        {"Tom", 8, 19},
+        {"Lucy", 2, 14},
+        {"Rachel", 11, 3},
+        {"Mike", 6, 28},
+    };
+    
+    vector<string> loved_ones = {"John", "Emily", "Tom", "Mike"};
+    
+    display_loved_ones_birthdays(birthdays, loved_ones);
+    
+    return 0;
+}
+
+// OPTION TO FIND YOUR FRIEND'S BIRTHDAY BY NAME.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct Birthday {
+    string name;
+    int month;
+    int day;
+};
+
+void find_friend_birthday(const vector<Birthday>& birthdays, const string& friend_name) {
+    bool found = false;
+    for (const auto& birthday : birthdays) {
+        if (birthday.name == friend_name) {
+            cout << birthday.name << "'s birthday is on " << birthday.month << "/" << birthday.day << "\n";
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "No birthday found for " << friend_name << " in the list.\n";
+    }
+}
+
+int main() {
+    vector<Birthday> birthdays = {
+        {"John", 1, 12},
+        {"Jane", 5, 24},
+        {"Michael", 7, 5},
+        {"Emily", 9, 16},
+        {"David", 12, 30},
+        {"Sarah", 3, 7},
+        {"Tom", 8, 19},
+        {"Lucy", 2, 14},
+        {"Rachel", 11, 3},
+        {"Mike", 6, 28},
+    };
+    
+    string friend_name;
+    cout << "Enter your friend's name: ";
+    getline(cin, friend_name);
+    
+    find_friend_birthday(birthdays, friend_name);
+    
+    return 0;
+}
+
+// VIEW A LIST OF MONYHLY BIRTHDAYS.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct Birthday {
+    string name;
+    int month;
+    int day;
+};
+
+void display_month_birthdays(const vector<Birthday>& birthdays, int month) {
+    cout << "Birthdays in month " << month << ":\n";
+    bool found = false;
+    for (const auto& birthday : birthdays) {
+        if (birthday.month == month) {
+            cout << birthday.name << ": " << birthday.day << "\n";
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "No birthdays found in month " << month << "\n";
+    }
+}
+
+int main() {
+    vector<Birthday> birthdays = {
+        {"John", 1, 12},
+        {"Jane", 5, 24},
+        {"Michael", 7, 5},
+        {"Emily", 9, 16},
+        {"David", 12, 30},
+        {"Sarah", 3, 7},
+        {"Tom", 8, 19},
+        {"Lucy", 2, 14},
+        {"Rachel", 11, 3},
+        {"Mike", 6, 28},
+    };
+    
+    int month;
+    cout << "Enter a month (1-12): ";
+    cin >> month;
+    
+    display_month_birthdays(birthdays, month);
+    
+    return 0;
+}
